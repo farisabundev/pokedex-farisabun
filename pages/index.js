@@ -6,6 +6,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import PokeCard from "../components/card";
 import PokeEmptyState from "../components/empty";
 
+const pokedexLogo = "/img/pokedex.png";
+
 const Home = () => {
   const [pokemons, setPokemons] = useState([]);
   const [fullPokemons, setFullPokemons] = useState(false);
@@ -103,11 +105,22 @@ const Home = () => {
       </Head>
 
       <div className="container py-5">
-        <h1>Pokedex</h1>
+        <div className="d-flex align-items-end mb-3">
+          <div>
+            <img className="logo-pokedex" src={pokedexLogo} alt="pokedex_logo" />
+          </div>
+
+          <div className="px-1">
+            <label>by FARISABUN</label>
+          </div>
+        </div>
 
         <div className="pb-3 d-flex align-items-center ">
-          <label className="form-label pe-3">Nature:</label>
-          <select className="form-select w-50" onChange={(e) => handleTypeChange(e)}>
+          <label className="form-label pe-3">Filter by nature:</label>
+          <select
+            className="form-select w-50"
+            onChange={(e) => handleTypeChange(e)}
+          >
             <option value="">Select nature</option>
             {pokemonTypes.map((each, index) => (
               <option value={each.name} key={index}>
@@ -129,7 +142,7 @@ const Home = () => {
             >
               <div className="row pb-5">
                 {filteredPokemons.map((each, index) => (
-                  <div className="col-2" key={index}>
+                  <div className="col-3" key={index}>
                     <PokeCard id={each.id} data={each} />
                   </div>
                 ))}

@@ -1,9 +1,165 @@
+@import "variables";
+
 .card {
   border-radius: 0;
-  min-height: 400px;
+  min-height: 450px;
+  border: none;
 
   .card-label {
-    background-color: blue;
-    color: white;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding: 2.5px 5px;
+
+    .smaller-size-19 { font-size: calc((16px - 24%)) }
+    .smaller-size-20 { font-size: calc((16px - 25%)) }
+    .smaller-size-21 { font-size: calc((16px - 26%)) }
+    .smaller-size-22 { font-size: calc((16px - 27%)) }
+    .smaller-size-23 { font-size: calc((16px - 28%)) }
+    .smaller-size-24 { font-size: calc((16px - 29%)) }
+    .smaller-size-25 { font-size: calc((16px - 30%)) }
+    .smaller-size-26 { font-size: calc((16px - 31%)) }
+    .smaller-size-27 { font-size: calc((16px - 32%)) }
+    .smaller-size-28 { font-size: calc((16px - 33%)) }
+    .smaller-size-29 { font-size: calc((16px - 34%)) }
+    .smaller-size-30 { font-size: calc((16px - 35%)) }
+  }
+
+  .card-type {
+    .pokemon-type {
+      height: 16px;
+      margin-right: 5px;
+    }
+  }
+
+  .card-image-wrapper {
+    background-color: white;
+    min-height: 200px;
+    margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+
+    .card-image {
+      width: 100%;
+    }
+  }
+
+  .card-abilities {
+    // font-size: 8px;
+  }
+
+  &.normal {
+    background-color: rgba($color: $normal, $alpha: 0.5);
+    .card-label {
+      background-color: $normal;
+    }
+  }
+  &.fire {
+    background-color: rgba($color: $fire, $alpha: 0.5);
+    .card-label {
+      background-color: $fire;
+    }
+  }
+  &.water {
+    background-color: rgba($color: $water, $alpha: 0.5);
+    .card-label {
+      background-color: $water;
+    }
+  }
+
+  &.electric {
+    background-color: rgba($color: $electric, $alpha: 0.5);
+    .card-label {
+      background-color: $electric;
+    }
+  }
+  &.grass {
+    background-color: rgba($color: $grass, $alpha: 0.5);
+    .card-label {
+      background-color: $grass;
+    }
+  }
+  &.ice {
+    background-color: rgba($color: $ice, $alpha: 0.5);
+    .card-label {
+      background-color: $ice;
+    }
+  }
+  &.fighting {
+    background-color: rgba($color: $fighting, $alpha: 0.5);
+    .card-label {
+      background-color: $fighting;
+      color: $white;
+    }
+  }
+  &.poison {
+    background-color: rgba($color: $poison, $alpha: 0.5);
+    .card-label {
+      background-color: $poison;
+      color: $white;
+    }
+  }
+  &.ground {
+    background-color: rgba($color: $ground, $alpha: 0.5);
+    .card-label {
+      background-color: $ground;
+    }
+  }
+  &.flying {
+    background-color: rgba($color: $flying, $alpha: 0.5);
+    .card-label {
+      background-color: $flying;
+    }
+  }
+  &.psychic {
+    background-color: rgba($color: $psychic, $alpha: 0.5);
+    .card-label {
+      background-color: $psychic;
+    }
+  }
+  &.bug {
+    background-color: rgba($color: $bug, $alpha: 0.5);
+    .card-label {
+      background-color: $bug;
+    }
+  }
+  &.rock {
+    background-color: rgba($color: $rock, $alpha: 0.5);
+    .card-label {
+      background-color: $rock;
+    }
+  }
+  &.ghost {
+    background-color: rgba($color: $ghost, $alpha: 0.5);
+    .card-label {
+      background-color: $ghost;
+      color: $white;
+    }
+  }
+  &.dragon {
+    background-color: rgba($color: $dragon, $alpha: 0.5);
+    .card-label {
+      background-color: $dragon;
+    }
+  }
+  &.dark {
+    background-color: rgba($color: $dark, $alpha: 0.5);
+    .card-label {
+      background-color: $dark;
+      color: $white;
+    }
+  }
+  &.steel {
+    background-color: rgba($color: $steel, $alpha: 0.5);
+    .card-label {
+      background-color: $steel;
+    }
+  }
+  &.fairy {
+    background-color: rgba($color: $fairy, $alpha: 0.5);
+    .card-label {
+      background-color: $fairy;
+    }
   }
 }

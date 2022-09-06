@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.logo-pokedex {
+  height: 52px;
+}
