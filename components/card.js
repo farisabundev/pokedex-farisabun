@@ -25,10 +25,10 @@ const PokeCard = (props) => {
           className="card-image"
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id}.png`}
           alt={props.data.name}
-          onError={({ currentTarget }) => {
-            currentTarget.onerror = null;
-            currentTarget.src = imgError;
-          }}
+          // onError={({ currentTarget }) => {
+          //   currentTarget.onerror = null;
+          //   currentTarget.src = imgError;
+          // }}
         />
       </div>
 
