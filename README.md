@@ -1,6 +1,6 @@
 # Pokedex by Farisabun
 
-This app show a list of Pokemon and filter them by their types. This app uses data from [pokeapi](https://pokeapi.co/).
+This app show a list of Pokemon and filter them by their types. This app uses data from [pokeapi](https://pokeapi.co/). You can check the demo [here](https://pokedex-farisabun.herokuapp.com/).
 
 ## Build Setup
 In the project directory, you can run:
