@@ -16,6 +16,7 @@ const Home = () => {
   const [pokemonTypes, setPokemonTypes] = useState([]);
   const [filterValue, setFilterValue] = useState("");
   const [offset, setOffset] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchTypes();
@@ -40,6 +41,10 @@ const Home = () => {
 
   const fetchPokemon = async (callback) => {
     if (!fullPokemons) {
+      if(!pokemons.length) {
+        setIsLoading(true);
+      }
+
       try {
         let finalData,
           result = await axios.get("https://pokeapi.co/api/v2/pokemon", {
@@ -72,7 +77,12 @@ const Home = () => {
         } else {
           setFullPokemons(false);
         }
+
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 500);
       } catch (error) {
+        setIsLoading(false);
         throw error;
       }
     }
@@ -107,7 +117,11 @@ const Home = () => {
       <div className="container py-5">
         <div className="d-flex align-items-end mb-3">
           <div>
-            <img className="logo-pokedex" src={pokedexLogo} alt="pokedex_logo" />
+            <img
+              className="logo-pokedex"
+              src={pokedexLogo}
+              alt="pokedex_logo"
+            />
           </div>
 
           <div className="px-1">
@@ -130,24 +144,30 @@ const Home = () => {
           </select>
         </div>
 
-        {!filteredPokemons.length ? (
-          <PokeEmptyState />
+        {isLoading ? (
+          <>Loading</>
         ) : (
           <>
-            <InfiniteScroll
-              dataLength={filteredPokemons.length}
-              next={() => fetchPokemon()}
-              hasMore={!fullPokemons}
-              loader={<h4>Loading...</h4>}
-            >
-              <div className="row pb-5">
-                {filteredPokemons.map((each, index) => (
-                  <div className="col-3" key={index}>
-                    <PokeCard id={each.id} data={each} />
+            {!filteredPokemons.length ? (
+              <PokeEmptyState />
+            ) : (
+              <>
+                <InfiniteScroll
+                  dataLength={filteredPokemons.length}
+                  next={() => fetchPokemon()}
+                  hasMore={!fullPokemons}
+                  loader={<h4>Loading...</h4>}
+                >
+                  <div className="row pb-5">
+                    {filteredPokemons.map((each, index) => (
+                      <div className="col-md-3 col-sm-12" key={index}>
+                        <PokeCard id={each.id} data={each} />
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </InfiniteScroll>
+                </InfiniteScroll>
+              </>
+            )}
           </>
         )}
       </div>
